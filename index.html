@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <h2>Add a new item:</h2>
+    <div id="form-div">
+        <label for="name">Name: </label>
+        <input type="text" id="name" placeholder="Where was the expense made?" class="main-input">
+        <br><br>
+        <label for="Date">Date: </label>
+        <input type="date" id="Date" class="sec-input">
+        <label for="amount">Amount: </label>
+        <input type="text" id="amount" placeholder="Amount" class="sec-input">
+    <div>
+        <br>
+        <button id="add-button" onclick="addRow()">Add Expense</button>
+    </div>
+    </div>
+    <div>
+        <br>
+        <table id="expense-table">
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th><button id="inv-button">XX</button></th>
+            </tr>
+            <tr>
+                <td id="table-default-message" colspan="4">No expenses added yet</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var j = 1;
+        var k = 0;
+        function addRow(){
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('Date').value;
+            const amount = document.getElementById('amount').value;
+            document.getElementById('expense-table').innerHTML+=
+                "<tr><td>"+name+"</td><td>"+date+"</td><td>$"+amount+"</td><td><button id='delete-button' onclick='deleteRow(this)'>X</button></td></tr>";
+            if(j==1){
+                document.getElementById('table-default-message').remove();
+                j--;
+            }
+            document.getElementById('name').value="";
+            document.getElementById('Date').value="";
+            document.getElementById('amount').value="";
+        }
+        function deleteRow(r){
+            var i = r.parentNode.parentNode.rowIndex;
+            var rows = document.getElementById('expense-table').getElementsByTagName('tr');
+            if(rows.length==(3+k)){
+                document.getElementById('expense-table').deleteRow(i);
+                document.getElementById('expense-table').innerHTML+="<tr><td id='table-default-message' colspan='4'>No expenses added yet</td></tr>";
+                j++;
+                k++;
+            }else{
+                document.getElementById('expense-table').deleteRow(i);
+            }
+        }
+    </script>
+</body>
+</html>

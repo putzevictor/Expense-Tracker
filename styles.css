@@ -1,0 +1,54 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    align-items: center;
+}
+h2{
+    color: green;
+}
+#form-div{
+    font-weight: bold;
+}
+.main-input{
+    width: 64%;
+    padding: 3px;
+}
+.sec-input{
+    width: 415px;
+    padding: 3px;
+}
+#add-button{
+    background-color: green;
+    color: white;
+    font-size: medium;
+    width: 140px;
+    height: 35px;
+    border-color: green;
+}
+#add-button:hover{
+    background-color: darkgreen;
+    border-color: darkgreen;
+}
+table, th, td {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    margin:auto;
+    width: 70%;
+    text-align: left;
+    padding: 10px;
+    padding-left: 10px;
+}
+td{
+    background-color: lightgrey;
+}
+#delete-button:hover{
+    background-color: grey;
+}
+#delete-button{
+    background-color: lightgrey;
+}
+#inv-button{
+    background-color: white;
+    color: white;
+    border: none;
+}
